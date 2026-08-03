@@ -1,26 +1,37 @@
 import random
 
-lowercase = "abcdefghijklmnopqrstuvwxyz"
-uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-numbers = "0123456789"
-symbols = "!@#$%&*"
+lowercase_letters = "abcdefghijklmnopqrstuvwxyz"
+uppercase_letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+numbers_letters = "0123456789"
+symbols_letters = "!@#$%&*"
 
-characters = lowercase + uppercase + numbers + symbols
+characters = lowercase_letters + uppercase_letters + numbers_letters + symbols_letters
 
 password = ""
-size = int(input("Digite o tamanho da senha: "))
-uppercase = input("Deseja incluir letras maiúsculas? (s/n): ").lower() == "s"
-if uppercase:
-    characters = lowercase + uppercase + numbers + symbols
-else:
-    print("Senha sem letras maiúsculas.")
+user_uppercase = ""
+user_numbers = ""
+user_symbols = ""
+user_lowercase = ""
 
-numbers = input("Deseja incluir números? (s/n): ").lower() == "s"
-if not numbers:
-    characters = lowercase + uppercase + symbols
-symbols = input("Deseja incluir símbolos? (s/n): ").lower() == "s"
-if not symbols:
-    characters = lowercase + uppercase + numbers
+size = int(input("Digite o tamanho da senha: "))
+
+while user_uppercase != "s" and user_uppercase != "n":
+    user_uppercase = input("Deseja incluir letras maiúsculas? (s/n): ").lower()
+    if user_uppercase != "s" and user_uppercase != "n":
+        print("Opção inválida. Digite apenas s ou n.")
+characters = lowercase_letters + numbers_letters + symbols_letters
+
+while user_numbers != "s" and user_numbers != "n":
+    user_numbers = input("Deseja incluir números? (s/n): ").lower()
+    if user_numbers != "s" and user_numbers != "n":
+        print("Opção inválida. Digite apenas s ou n.")
+    characters = lowercase_letters + uppercase_letters + symbols_letters
+
+while user_symbols != "s" and user_symbols != "n":
+    user_symbols = input("Deseja incluir símbolos? (s/n): ").lower()
+    if user_symbols != "s" and user_symbols != "n":
+        print("Opção inválida. Digite apenas s ou n.")
+    characters = lowercase_letters + uppercase_letters
 
 for i in range(size):
     char = random.choice(characters)
