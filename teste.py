@@ -3,7 +3,7 @@ idades = [8,25, 30, 15, 22]
 print (idades)
 print (len(idades))
 print (idades[1])
-print (idades[-1])
+
 
 
 compras = []
